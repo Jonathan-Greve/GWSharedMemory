@@ -1,4 +1,6 @@
 #pragma once
+#pragma warning(push)
+#pragma warning(disable : 4459)
 #include <boost/interprocess/managed_shared_memory.hpp>
 #include <boost/interprocess/allocators/allocator.hpp>
 #include <boost/interprocess/containers/map.hpp>
@@ -7,6 +9,7 @@
 #include <boost/interprocess/containers/string.hpp>
 #include <boost/interprocess/sync/interprocess_mutex.hpp>
 #include <boost/interprocess/sync/scoped_lock.hpp>
+#pragma warning(pop)
 
 using namespace boost::interprocess;
 
