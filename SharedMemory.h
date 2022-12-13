@@ -9,11 +9,14 @@ public:
     ~SharedMemory()
     {
         //shared_memory_object::remove(m_name.c_str());
-        void_allocator void_alloc(m_connections_managed_shared_memory.get_segment_manager());
-        auto connected_clients =
-          m_managed_shared_memory.find_or_construct<ConnectedClients>(unique_instance)(void_alloc);
+        if (m_is_initialized)
+        {
+            void_allocator void_alloc(m_connections_managed_shared_memory.get_segment_manager());
+            auto connected_clients = m_connections_managed_shared_memory.find_or_construct<ConnectedClients>(
+              unique_instance)(void_alloc);
 
-        connected_clients->disconnect(m_name);
+            connected_clients->disconnect(m_name);
+        }
     }
 
     void init(std::string shared_memory_name)
@@ -30,11 +33,21 @@ public:
         auto connected_clients = m_connections_managed_shared_memory.find_or_construct<ConnectedClients>(
           unique_instance)(void_alloc);
         connected_clients->connect(m_name);
+
+        m_is_initialized = true;
     }
 
-    managed_shared_memory& get() { return m_managed_shared_memory; }
+    managed_shared_memory& get()
+    {
+        if (! m_is_initialized)
+            throw "Not initialized.";
+
+        return m_managed_shared_memory;
+    }
 
 private:
+    bool m_is_initialized{false};
+
     std::string m_name;
     managed_shared_memory m_managed_shared_memory;
     managed_shared_memory m_connections_managed_shared_memory;
