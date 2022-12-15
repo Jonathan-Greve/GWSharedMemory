@@ -13,22 +13,25 @@ public:
     void connect(std::string shared_memory_name)
     {
         scoped_lock<interprocess_mutex> lock(m_mutex);
-
         m_connected_shared_memory_names.insert(string_to_char_string(shared_memory_name, m_char_allocator));
+
+        cond_connection_changed.notify_all();
     }
 
     void disconnect(std::string shared_memory_name)
     {
         scoped_lock<interprocess_mutex> lock(m_mutex);
-
         m_connected_shared_memory_names.erase(string_to_char_string(shared_memory_name, m_char_allocator));
+
+        cond_connection_changed.notify_all();
     }
 
     char_string_set get_connected_shared_memory_names() { return m_connected_shared_memory_names; }
 
-private:
+    interprocess_condition cond_connection_changed;
     interprocess_mutex m_mutex;
 
+private:
     char_allocator m_char_allocator;
     char_string_set m_connected_shared_memory_names;
 };
