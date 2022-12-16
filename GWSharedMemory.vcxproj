@@ -23,12 +23,12 @@
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="ConnectedClients.h" />
     <ClInclude Include="GWSharedMemory.h" />
-    <ClInclude Include="SharedMemory.h" />
+    <ClInclude Include="ClientSharedMemory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="ConnectedClients.cpp" />
-    <ClCompile Include="SharedMemory.cpp" />
+    <ClCompile Include="ClientSharedMemory.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

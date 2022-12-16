@@ -27,12 +27,12 @@
     <ClInclude Include="GWSharedMemory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SharedMemory.h">
+    <ClInclude Include="ClientSharedMemory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SharedMemory.cpp">
+    <ClCompile Include="ClientSharedMemory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ClientData.cpp">
