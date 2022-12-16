@@ -22,6 +22,7 @@
     <ClInclude Include="BoostInterprocess.h" />
     <ClInclude Include="ClientData.h" />
     <ClInclude Include="ConnectedClients.h" />
+    <ClInclude Include="ConnectionsSharedMemory.h" />
     <ClInclude Include="GWSharedMemory.h" />
     <ClInclude Include="ClientSharedMemory.h" />
   </ItemGroup>
@@ -29,6 +30,7 @@
     <ClCompile Include="ClientData.cpp" />
     <ClCompile Include="ConnectedClients.cpp" />
     <ClCompile Include="ClientSharedMemory.cpp" />
+    <ClCompile Include="ConnectionsSharedMemory.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

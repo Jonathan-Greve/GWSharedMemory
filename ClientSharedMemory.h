@@ -1,7 +1,5 @@
 #pragma once
 
-using namespace boost::interprocess;
-
 class ClientSharedMemory
 {
 public:
