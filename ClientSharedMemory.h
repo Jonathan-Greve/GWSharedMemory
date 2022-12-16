@@ -5,7 +5,6 @@ using namespace boost::interprocess;
 class ClientSharedMemory
 {
 public:
-    ClientSharedMemory() = default;
     ~ClientSharedMemory() { shared_memory_object::remove(m_client_shared_memory_name.c_str()); }
 
     bool init(std::string client_shared_memory_name)
