@@ -17,12 +17,28 @@ struct Player
     float health; // 0 to 1
     float energy; // 0 to 1
 
-    // instance timer in rendered framed.
+    uint32_t instance_id;
+    uint32_t party_id;
+};
+
+struct InstanceInfo
+{
+    // instance timer in rendered framed since loaded.
     uint32_t fps_timer;
+
+    // Pair of instance_id and party_id uniquely identifies a party.
+    uint32_t instance_id;
+};
+
+struct Party
+{
+    uint32_t party_id;
 };
 
 class ClientData
 {
 public:
     Player player;
+    InstanceInfo instance_info;
+    Party party;
 };

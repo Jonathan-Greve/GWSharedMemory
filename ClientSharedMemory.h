@@ -9,7 +9,6 @@ public:
     {
         m_client_shared_memory_name = client_shared_memory_name;
 
-        shared_memory_object::remove(m_client_shared_memory_name.c_str());
         m_client_managed_shared_memory =
           managed_shared_memory(open_or_create, m_client_shared_memory_name.c_str(), 65536);
 
